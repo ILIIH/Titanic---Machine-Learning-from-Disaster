@@ -6,10 +6,8 @@ from sklearn.preprocessing import LabelEncoder
 def prepare_data(data):
     data.pop('Ticket')
     data.pop('Cabin')
-
     mean_age = data['Age'].mean()
     data['Age'].fillna(mean_age, inplace=True)
-
     label_encoder = LabelEncoder()
     categorical_cols = ['Name', 'Sex', 'Embarked']
     for col in categorical_cols:
